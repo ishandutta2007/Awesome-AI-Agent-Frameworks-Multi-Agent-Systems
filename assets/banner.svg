@@ -1,0 +1,196 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070913" />
+      <stop offset="50%" stop-color="#0d1124" />
+      <stop offset="100%" stop-color="#05070e" />
+    </linearGradient>
+
+    <!-- Vibrant Accents -->
+    <linearGradient id="primaryGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6366F1" />
+      <stop offset="50%" stop-color="#A855F7" />
+      <stop offset="100%" stop-color="#EC4899" />
+    </linearGradient>
+
+    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06B6D4" />
+      <stop offset="100%" stop-color="#3B82F6" />
+    </linearGradient>
+
+    <!-- Glowing Filters -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <filter id="lightGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Grid Pattern -->
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1" />
+    </pattern>
+
+    <!-- CSS Keyframe Animations -->
+    <style>
+      .pulse-slow {
+        animation: pulseSlow 6s ease-in-out infinite alternate;
+      }
+      .pulse-fast {
+        animation: pulseFast 4s ease-in-out infinite alternate;
+      }
+      .node-float-1 {
+        animation: float1 5s ease-in-out infinite alternate;
+      }
+      .node-float-2 {
+        animation: float2 6s ease-in-out infinite alternate;
+      }
+      .node-float-3 {
+        animation: float3 7s ease-in-out infinite alternate;
+      }
+      .flow-pulse {
+        stroke-dasharray: 8, 8;
+        animation: dash 20s linear infinite;
+      }
+      .pulse-glow {
+        animation: glowCycle 4s ease-in-out infinite alternate;
+      }
+
+      @keyframes dash {
+        to {
+          stroke-dashoffset: -400;
+        }
+      }
+      @keyframes float1 {
+        0% { transform: translate(0px, 0px); }
+        100% { transform: translate(10px, -15px); }
+      }
+      @keyframes float2 {
+        0% { transform: translate(0px, 0px); }
+        100% { transform: translate(-12px, 12px); }
+      }
+      @keyframes float3 {
+        0% { transform: translate(0px, 0px); }
+        100% { transform: translate(8px, 14px); }
+      }
+      @keyframes pulseSlow {
+        0% { opacity: 0.25; transform: scale(0.95); }
+        100% { opacity: 0.55; transform: scale(1.08); }
+      }
+      @keyframes pulseFast {
+        0% { opacity: 0.3; transform: scale(1); }
+        100% { opacity: 0.65; transform: scale(1.15); }
+      }
+      @keyframes glowCycle {
+        0% { filter: drop-shadow(0 0 10px rgba(99, 102, 241, 0.4)); }
+        100% { filter: drop-shadow(0 0 25px rgba(236, 72, 153, 0.7)); }
+      }
+    </style>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="1200" height="420" fill="url(#bgGrad)" />
+  <rect width="1200" height="420" fill="url(#grid)" />
+
+  <!-- DYNAMIC BACKGROUND ELEMENTS: Ambient Glowing Orbs -->
+  <circle cx="180" cy="100" r="140" fill="#6366F1" opacity="0.3" filter="url(#glow)" class="pulse-slow" />
+  <circle cx="1020" cy="300" r="160" fill="#EC4899" opacity="0.25" filter="url(#glow)" class="pulse-fast" />
+  <circle cx="600" cy="210" r="220" fill="#3B82F6" opacity="0.12" filter="url(#glow)" />
+
+  <!-- DYNAMIC AGENT GRAPH NETWORK (Background Architectural Mesh) -->
+  <g opacity="0.35" class="flow-pulse">
+    <!-- Connecting Workflow Lines -->
+    <line x1="120" y1="90" x2="280" y2="180" stroke="#818CF8" stroke-width="2" />
+    <line x1="280" y1="180" x2="160" y2="330" stroke="#818CF8" stroke-width="2" />
+    <line x1="280" y1="180" x2="450" y2="80" stroke="#C084FC" stroke-width="2" />
+    <line x1="750" y1="340" x2="920" y2="240" stroke="#C084FC" stroke-width="2" />
+    <line x1="920" y1="240" x2="1080" y2="320" stroke="#F472B6" stroke-width="2" />
+    <line x1="920" y1="240" x2="1050" y2="110" stroke="#F472B6" stroke-width="2" />
+  </g>
+
+  <!-- Floating Network Agent Nodes (Subtle Animated Graph Nodes) -->
+  <g class="node-float-1">
+    <circle cx="120" cy="90" r="6" fill="#6366F1" filter="url(#lightGlow)" />
+    <circle cx="1080" cy="320" r="6" fill="#EC4899" filter="url(#lightGlow)" />
+  </g>
+  <g class="node-float-2">
+    <circle cx="280" cy="180" r="9" fill="#818CF8" filter="url(#lightGlow)" />
+    <circle cx="920" cy="240" r="9" fill="#C084FC" filter="url(#lightGlow)" />
+    <circle cx="1050" cy="110" r="5" fill="#38BDF8" filter="url(#lightGlow)" />
+  </g>
+  <g class="node-float-3">
+    <circle cx="160" cy="330" r="7" fill="#A855F7" filter="url(#lightGlow)" />
+    <circle cx="450" cy="80" r="6" fill="#38BDF8" filter="url(#lightGlow)" />
+    <circle cx="750" cy="340" r="7" fill="#F43F5E" filter="url(#lightGlow)" />
+  </g>
+
+  <!-- FOREGROUND CONTENT: Guaranteed pristine contrast & visibility -->
+
+  <!-- Top Category Tag -->
+  <g transform="translate(600, 75)">
+    <rect x="-180" y="-18" width="360" height="36" rx="18" fill="#1E1B4B" stroke="#6366F1" stroke-width="1.5" stroke-opacity="0.8" />
+    <circle cx="-150" cy="0" r="5" fill="#10B981" filter="url(#lightGlow)" />
+    <text x="-135" y="5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#E0E7FF" letter-spacing="1.2">CURATED ECOSYSTEM DIRECTORY</text>
+  </g>
+
+  <!-- Main Hero Title -->
+  <g transform="translate(600, 155)" class="pulse-glow">
+    <text text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="44" font-weight="900" fill="url(#primaryGrad)" letter-spacing="-0.5">
+      Awesome AI Agent Frameworks
+    </text>
+  </g>
+
+  <!-- Main Hero Subtitle -->
+  <g transform="translate(600, 205)">
+    <text text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="28" font-weight="700" fill="#F8FAFC" letter-spacing="0.2">
+      &amp; Multi-Agent Systems (MAS)
+    </text>
+  </g>
+
+  <!-- Tagline / Mission -->
+  <g transform="translate(600, 250)">
+    <text text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="16" font-weight="400" fill="#94A3B8" letter-spacing="0.3">
+      Orchestration Frameworks • Autonomous Swarms • Cyclic State Graphs • Shared Memory Runtimes
+    </text>
+  </g>
+
+  <!-- Bottom Interactive Capability Badges -->
+  <g transform="translate(600, 325)">
+    <!-- Pill 1: LangGraph & CrewAI -->
+    <g transform="translate(-360, 0)">
+      <rect x="-85" y="-17" width="170" height="34" rx="17" fill="#1E293B" stroke="#475569" stroke-width="1" />
+      <text text-anchor="middle" y="5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#38BDF8">🤖 Agent Workflows</text>
+    </g>
+
+    <!-- Pill 2: Multi-Agent Collaboration -->
+    <g transform="translate(-120, 0)">
+      <rect x="-105" y="-17" width="210" height="34" rx="17" fill="#1E293B" stroke="#475569" stroke-width="1" />
+      <text text-anchor="middle" y="5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#A78BFA">👥 Multi-Agent Swarms</text>
+    </g>
+
+    <!-- Pill 3: Cyclic State & Graph -->
+    <g transform="translate(125, 0)">
+      <rect x="-95" y="-17" width="190" height="34" rx="17" fill="#1E293B" stroke="#475569" stroke-width="1" />
+      <text text-anchor="middle" y="5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#F472B6">🔄 Cyclic State Graphs</text>
+    </g>
+
+    <!-- Pill 4: Production Enterprise Runtimes -->
+    <g transform="translate(355, 0)">
+      <rect x="-85" y="-17" width="170" height="34" rx="17" fill="#1E293B" stroke="#475569" stroke-width="1" />
+      <text text-anchor="middle" y="5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#34D399">⚡ Production SaaS</text>
+    </g>
+  </g>
+
+  <!-- Bottom Accent Border -->
+  <rect x="0" y="415" width="1200" height="5" fill="url(#primaryGrad)" />
+</svg>
